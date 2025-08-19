@@ -12,7 +12,7 @@ const Projects = () => {
   const { Projects } = content;
   return (
     <section className="bg-bg_light_primary" id="projects">
-      <div className="md:container px-5 pt-14 min-h-screen flex flex-col justify-between">
+      <div className="md:container px-5 pt-14  min-h-screen  flex flex-col justify-between">
         <div>
           <h2 className="title" data-aos="fade-down">
             {Projects.title}
@@ -27,7 +27,7 @@ const Projects = () => {
             src={Projects.image}
             alt="..."
             data-aos="fade-right"
-            className="max-w-[45vw] min-w-[22rem]"
+            className="max-w-[45vw] min-w-[22rem] h-[30rem]"
           />
           <Swiper
             pagination={{
@@ -43,12 +43,23 @@ const Projects = () => {
                 key={i}
                 className="bg-white rounded-3xl p-5 border-b-8 border-[#FAF9FD] h-fit"
               >
-                <img src={content.image} alt="..." />
-                <div className="flex flex-col gap-1 mt-2">
+                <img src={content.image} alt="..." className="rounded-xl" />
+                <div className="flex flex-col gap-2 mt-2">
                   <h5 className="font-bold font-Poppins">{content.title}</h5>
-                  <button className="font-bold text-gray self-end">
-                    READ MORE
-                  </button>
+                  <p className="text-sm text-gray-600">{content.description}</p>
+                  <div className="flex justify-between items-center mt-2">
+                    <a
+                      href={content.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 font-normal cursor-pointer"
+                    >
+                      Live Demo
+                    </a>
+                    <button className="font-light text-gray-500 hover:text-black">
+                      Read More
+                    </button>
+                  </div>
                 </div>
               </SwiperSlide>
             ))}

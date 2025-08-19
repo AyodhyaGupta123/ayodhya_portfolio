@@ -19,7 +19,6 @@ import project3 from "./assets/images/projects/img3.png";
 import person_project from "./assets/images/projects/person.png";
 
 import Hireme_person from "./assets/images/Hireme/person.png";
-import Hireme_person2 from "./assets/images/Hireme/person2.png";
 
 // import icons from react-icons
 import { GrMail } from "react-icons/gr";
@@ -76,86 +75,139 @@ export const content = {
     skills_content: [
       {
         name: "MongoDB",
-        para: "Experience in designing schemas, performing CRUD operations, and optimizing queries",
-        logo: mongodb, // Assuming you have a MongoDB logo image
+        para: "Skilled in schema design, CRUD operations, and query optimization.",
+        logo: mongodb,
+        details: [
+          "Schema design with embedded & referenced documents",
+          "Efficient CRUD operations",
+          "Indexing & query optimization",
+          "Aggregation pipelines",
+          "Experience with Mongoose ODM"
+        ],
       },
       {
-        name: "Node js",
-        para: "Built REST APIs, server-side applications, and real-time applications using Node.js",
+        name: "Node.js",
+        para: "Experienced in building REST APIs, backend services, and real-time apps.",
         logo: nodejs,
+        details: [
+          "Developing RESTful APIs",
+          "Authentication & authorization",
+          "Real-time apps using WebSockets",
+          "Error handling & middleware",
+          "Integrating databases & external APIs"
+        ],
       },
       {
-        name: "Express js",
-        para: "Lorem ipsum text  dummy",
+        name: "Express.js",
+        para: "Proficient in creating scalable server-side applications with Express.js.",
         logo: expressjs,
+        details: [
+          "Routing & middleware setup",
+          "REST API development",
+          "Error handling & validation",
+          "Template engines & APIs",
+          "Session & cookies handling"
+        ],
       },
       {
-        name: "React js",
-        para: "Lorem ipsum text  dummy",
+        name: "React.js",
+        para: "Adept at developing dynamic, responsive, and component-based UIs.",
         logo: reactjs,
+        details: [
+          "Component-based architecture",
+          "State & props management",
+          "React hooks (useState, useEffect, etc.)",
+          "Responsive UI with Tailwind/Bootstrap",
+          "Integration with APIs"
+        ],
       },
       {
         name: "MVC Architecture",
-        para: "Lorem ipsum text  dummy",
+        para: "Strong understanding of organizing applications using MVC principles.",
         logo: mvc,
+        details: [
+          "Separating concerns into Model, View, Controller",
+          "Scalable application structure",
+          "Improved maintainability",
+          "Reusability of components",
+          "Integration with frameworks"
+        ],
       },
       {
         name: "C Programming",
-        para: "Lorem ipsum text  dummy",
+        para: "Knowledgeable in writing efficient, structured, and low-level programs.",
         logo: c,
+        details: [
+          "Data structures & algorithms",
+          "Memory management & pointers",
+          "File handling",
+          "Problem-solving with C",
+          "Writing modular & reusable code"
+        ],
       },
     ],
     icon: MdArrowForward,
   },
+  
+  
   services: {
     title: "Services",
     subtitle: "WHAT I OFFER",
     service_content: [
       {
         title: "Web Development",
-        para: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document elying on mean",
+        para: "Building responsive, dynamic, and scalable websites using modern technologies.",
         logo: services_logo1,
       },
       {
-        title: "ui / ux DESIGNING",
-        para: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document elying on mean",
+        title: "UI / UX Designing",
+        para: "Designing intuitive, user-friendly, and visually appealing interfaces for better experiences.",
         logo: services_logo2,
       },
       {
-        title: "Custom API and Deployment",
-        para: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document elying on mean",
+        title: "Custom API & Deployment",
+        para: "Developing secure APIs and deploying applications with optimized performance.",
         logo: services_logo3,
       },
     ],
   },
+  
+
   Projects: {
     title: "Projects",
     subtitle: "MY CREATION",
     image: person_project,
     project_content: [
       {
-        title: "Gym Website",
+        title: "Get Your Lawyers",
         image: project1,
+        description: "A legal service platform theme designed for law firms and lawyers to showcase services, cases, and client testimonials.",
+        liveLink: "https://www.getyourlawyers.com/",
       },
       {
-        title: "Social Media web",
+        title: "Clif.Ai",
         image: project2,
+        description: "An AI-powered SaaS theme built for tech companies, and educational platforms, featuring a modern UI, seamless integration sections, student placement support, mock interview practice, career guidance, and dedicated dashboards for both parents and students",
+        liveLink: "https://www.clif.ai.com/",
       },
       {
-        title: "Creative Website",
+        title: "Exo Ape",
         image: project3,
+        description: "Exo Ape is one of exploration, creativity and curiosity. We partner with brands and businesses that create exceptional experiences where people live, work and unwind",
+        liveLink: "https://eco-app-react.vercel.app/",
       },
     ],
   },
+  
  
   Hireme: {
     title: "Hire Me",
     subtitle: "FOR YOUR PROJECTS",
     image1: Hireme_person,
-    image2: Hireme_person2,
-    para: "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document elying on mean",
+    para: "I am a Full Stack MERN Developer with 2 years of hands-on experience in building scalable web applications. Skilled in React, Node.js, Express, and MongoDB, I specialize in creating dynamic, user-friendly, and efficient solutions tailored to client needs.",
     btnText: "Hire Me",
   },
+  
   Contact: {
     title: "Contect Me",
     subtitle: "GET IN TOUCH",

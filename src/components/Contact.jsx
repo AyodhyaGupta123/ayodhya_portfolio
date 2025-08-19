@@ -1,38 +1,44 @@
-import { createElement, useRef } from "react";
+import { createElement, useState } from "react";
 import { content } from "../Content";
-import emailjs from "@emailjs/browser";
-import toast, { Toaster } from "react-hot-toast";
 
 const Contact = () => {
   const { Contact } = content;
-  const form = useRef();
+  const [formData, setFormData] = useState({
+    from_name: "",
+    user_email: "",
+    mobile: "",
+    message: "",
+  });
 
-  // Sending Email
-  const sendEmail = (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // WhatsApp Send Logic
+  const sendWhatsApp = (e) => {
     e.preventDefault();
+    const phoneNumber = "919682780369"; 
 
-    emailjs
-      .sendForm(
-      'YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY'
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          // Clear all input field values
-          form.current.reset();
-          // Success toast message
-          toast.success("Email send Successfully");
-        },
-        (error) => {
-          console.log(error.text);
-          toast.error(error.text);
-        }
-      );
+    const text = `New Contact Form Submission:%0A
+    👤 Name: ${formData.from_name}%0A
+    📧 Email: ${formData.user_email}%0A
+    📱 Mobile: ${formData.mobile}%0A
+    💬 Message: ${formData.message}`;
+
+    // ✅ same tab me open hoga
+    window.location.href = `https://wa.me/${phoneNumber}?text=${text}`;
+
+    // ✅ form reset karna
+    setFormData({
+      from_name: "",
+      user_email: "",
+      mobile: "",
+      message: "",
+    });
   };
 
   return (
     <section className="bg-dark_primary text-white" id="contact">
-      <Toaster />
       <div className="md:container px-5 py-14">
         <h2 className="title !text-white" data-aos="fade-down">
           {Contact.title}
@@ -43,36 +49,48 @@ const Contact = () => {
         <br />
         <div className="flex gap-10 md:flex-row flex-col">
           <form
-            ref={form}
-            onSubmit={sendEmail}
+            onSubmit={sendWhatsApp}
             data-aos="fade-up"
             className="flex-1 flex flex-col gap-5"
           >
-            {/* Input Name as same as email js templates values */}
             <input
               type="text"
               name="from_name"
               placeholder="Name"
+              value={formData.from_name}
+              onChange={handleChange}
               required
               className="border border-slate-600 p-3 rounded"
             />
             <input
               type="email"
               name="user_email"
-              pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
               placeholder="Email Id"
+              value={formData.user_email}
+              onChange={handleChange}
+              required
+              className="border border-slate-600 p-3 rounded"
+            />
+            <input
+              type="tel"
+              name="mobile"
+              placeholder="Mobile Number"
+              value={formData.mobile}
+              onChange={handleChange}
               required
               className="border border-slate-600 p-3 rounded"
             />
             <textarea
               name="message"
               placeholder="Message"
+              value={formData.message}
+              onChange={handleChange}
               className="border border-slate-600 p-3 rounded h-44"
               required
             ></textarea>
             <button
-              className="btn self-start
-            bg-white text-dark_primary"
+              type="submit"
+              className="btn self-start bg-white text-dark_primary"
             >
               Submit
             </button>
@@ -86,7 +104,12 @@ const Contact = () => {
                 className="flex items-center gap-2"
               >
                 <h4 className="text-white">{createElement(content.icon)}</h4>
-                <a className="font-Poppins" href={content.link} target="_blank">
+                <a
+                  className="font-Poppins"
+                  href={content.link}
+                  target="_self" 
+                  rel="noreferrer"
+                >
                   {content.text}
                 </a>
               </div>
